@@ -1,0 +1,43 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Exemplo API",
+    "version": "1.0.0",
+    "description": "Uma API simples utilizando Node.js, TypeScript e Swagger-autogen"
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/mensagem/": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/saudacao/": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "nome",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  }
+}
