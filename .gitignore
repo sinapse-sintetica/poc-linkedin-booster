@@ -1,0 +1,25 @@
+# Arquivos e diretórios do Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Arquivos e diretórios de desenvolvimento
+dist/
+*.log
+
+# Arquivos de configuração do ambiente
+.env
+.env.local
+.env.*.local
+
+# Arquivos e diretórios do editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+*.bak
+
+# Arquivos e diretórios do sistema operacional
+.DS_Store
+Thumbs.db
