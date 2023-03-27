@@ -1,6 +1,12 @@
 # Linkedin Booster
 Este repositório contém provas de conceito para o projeto.  
 
+# Arquitetura (Em Construção)
+![Arquitetura](./readme/architecture.drawio.svg)
+
+# CÓDIGO AGORA
+Neste momento tem um Frontend de testes para uma API no Backend que faz o Scraping de dados do perfil de Linkedin solicitado.  
+
 ## Requisitos
 ![NodeJS](https://img.shields.io/badge/node.js-lts/hydrogen-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 
