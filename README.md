@@ -3,7 +3,6 @@ Este repositório contém provas de conceito para o projeto.
 
 # Arquitetura
 ![Arquitetura](./readme/architecture.drawio.svg)
-![Arquitetura](./readme/teste.drawio.svg)
 
 # Código Atualmente
 Neste momento tem um Frontend de testes para uma API no Backend que faz o Scraping de dados do perfil de Linkedin solicitado.  
