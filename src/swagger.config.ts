@@ -12,7 +12,7 @@ const doc = {
   },
   basePath: '/',
   schemes: ['http'],
-  host: 'localhost:3001'
+  host: 'localhost:3042'
 };
 
 swaggerAutogen()(outputFile, endpointsFiles, doc).then(() => {

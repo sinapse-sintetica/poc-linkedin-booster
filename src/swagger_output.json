@@ -5,7 +5,7 @@
     "version": "1.0.0",
     "description": "Uma API simples utilizando Node.js, TypeScript e Swagger-autogen"
   },
-  "host": "localhost:3001",
+  "host": "localhost:3042",
   "basePath": "/",
   "schemes": [
     "http"
@@ -15,23 +15,6 @@
       "get": {
         "description": "",
         "parameters": [],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/saudacao/": {
-      "get": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "nome",
-            "in": "query",
-            "type": "string"
-          }
-        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -53,6 +36,9 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
           },
           "500": {
             "description": "Internal Server Error"

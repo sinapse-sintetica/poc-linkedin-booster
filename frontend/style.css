@@ -1,0 +1,83 @@
+* {
+  box-sizing: border-box;
+}
+
+label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 10px;
+  font-family: 'Arial', sans-serif;
+}
+
+.msg-erro {
+  color: red;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  display: none;
+}
+
+.todos-dados {
+  border: 1px solid rgba(128,128,128, 0.4);
+  padding: 20px;
+  max-width: 900px;
+  animation: fadeIn .3s forwards;
+  display: none;
+}
+
+.area-busca {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.area-busca input {
+  max-width: 250px;
+  margin-right: 10px;
+  margin-bottom: 0;
+}
+button {
+  height: 38px;
+  border: 0;
+  background-color: aquamarine;
+  padding: 0px 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+input {
+  width: 100%;
+  height: 38px;
+  padding: 0px 20px;
+  border: 1px solid #b1adad;
+  margin-bottom: 15px;
+}
+
+input:read-only {
+  background-color: rgb(241,241,241);
+}
+
+textarea {
+  width: 100%;
+  height: 400px;
+  padding: 20px;
+  border: 1px solid #b1adad;
+  margin-bottom: 15px;
+  white-space: pre-wrap;
+}
+
+@keyframes fadeIn {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}

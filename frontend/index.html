@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Linkedin API</title>
+</head>
+
+<body>
+
+  <div class="area-busca">
+    <input type="text" id="js-input-perfil">
+    <button id="js-btn-buscar-perfil">Buscar Perfil</button>
+  </div>
+
+  <p class="msg-erro" id="js-error">Preenchar o campo, por favor!!!</p>
+
+  <div class="todos-dados" id="js-dados">
+    <h2>Perfil Linkedin</h2>
+    <div>
+      <label for="">Nome</label>
+      <input type="text" id="js-input-nome" readonly>
+      <label for="">Headline</label>
+      <input type="text" id="js-input-headline" readonly>
+      <label for="">Localização</label>
+      <input type="text" id="js-input-localizacao" readonly>
+      <label for="">Sobre</label>
+      <textarea id="js-input-sobre"></textarea>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="main.js"></script>
+</body>
+
+</html>
