@@ -11,6 +11,13 @@
     "http"
   ],
   "paths": {
+    "/": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
     "/mensagem/": {
       "get": {
         "description": "",

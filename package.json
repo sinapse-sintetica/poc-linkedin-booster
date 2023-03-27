@@ -10,7 +10,7 @@
     "start": "ts-node src/index.ts",
     "generate-swagger": "ts-node src/swagger.config.ts"
   },
-  "author": "Alexandre Alvaro",
+  "contributors": ["Alexandre Alvaro", "Dyego Maas", "Luciano Clécio"],
   "license": "MIT",
   "dependencies": {
     "@types/express": "^4.17.17",

@@ -11,6 +11,10 @@ const app = express();
 const port = process.env.PORT || 3042;
 
 app.use(cors());
+app.get('/', (req: Request, res: Response) => {
+  res.redirect('/docs');
+});
+
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 app.use('/mensagem', mensagemRoutes);
 app.use('/linkedin', linkedinRoutes);
