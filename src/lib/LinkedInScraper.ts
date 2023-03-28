@@ -43,7 +43,7 @@ export class LinkedInScraper {
       name,
       headline,
       location,
-      about,
+      about
     };
   }
 

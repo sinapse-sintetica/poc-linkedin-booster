@@ -2,6 +2,7 @@ import express, { Request, Response } from 'express';
 import swaggerUi from 'swagger-ui-express';
 import mensagemRoutes from './routes/mensagem.routes';
 import linkedinRoutes from './routes/linkedin.routes';
+import openaiRoutes from './routes/openai.routes';
 
 const cors = require('cors');
 
@@ -18,6 +19,7 @@ app.get('/', (req: Request, res: Response) => {
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 app.use('/mensagem', mensagemRoutes);
 app.use('/linkedin', linkedinRoutes);
+app.use('/gpt35', openaiRoutes)
 
 app.listen(port, () => {
   console.log(`Aplicação rodando em http://localhost:${port}`);

@@ -1,5 +1,7 @@
 import { Request, Response } from 'express';
 import { LinkedInScraper } from '../lib/LinkedInScraper';
+import { getOpenAiRevision } from '../lib/OpenAIRequest';
+
 
 class LinkedInController {
   // #swagger.tags = ['LinkedIn']
@@ -24,7 +26,20 @@ class LinkedInController {
       if (await scraper.isProfilePage()) {
         const profileInfo = await scraper.getProfileInfo();
         await scraper.close();
-        res.json(profileInfo);
+        
+
+        type ObjectKey = keyof typeof profileInfo;
+        const about = ('about') as ObjectKey
+
+        const response = await getOpenAiRevision(about);
+        const revised = response.data.choices[0].message?.content;
+
+        const updatedProfileInfo = {
+          ...profileInfo,
+          revised,
+        };
+
+        res.json(updatedProfileInfo);
       } else {
         await scraper.close();
         res.status(400).json({ message: 'A página carregada não é uma página de perfil do LinkedIn' });

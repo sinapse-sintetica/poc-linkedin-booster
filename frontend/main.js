@@ -8,6 +8,7 @@ const inputNome = $('#js-input-nome');
 const inputheadline = $('#js-input-headline');
 const inputLocalizacao = $('#js-input-localizacao');
 const inputSobre = $('#js-input-sobre');
+const inputRevisado = $('#js-input-revisado');
 
 const areaDados = $('#js-dados');
 const msgErro = $('#js-error');
@@ -25,6 +26,7 @@ btnBuscarPerfil.addEventListener('click', () => {
           inputheadline.value = data.headline;
           inputLocalizacao.value = data.location;
           inputSobre.value = data.about;
+          inputRevisado.value = data.revised;
 
           areaDados.style.display = "block";
           msgErro.style.display = 'none';
