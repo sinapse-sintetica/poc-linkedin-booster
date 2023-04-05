@@ -1,13 +1,23 @@
 import puppeteer, { Page } from 'puppeteer';
 import * as cheerio from 'cheerio';
 
+export class ExtractedProfile {
+  public name: string = '';
+  public headline: string = '';
+  public about: string = '';
+  public location: string = '';
+}
+
 export class LinkedInScraper {
   private page: Page | undefined;
 
   constructor(private profileUrl: string) {}
 
   async init(): Promise<void> {
-    const browser = await puppeteer.launch({ headless: true });
+    const browser = await puppeteer.launch({ 
+      headless: true//,
+      //args: [ '--proxy-server=http://10.10.10.10:8000' ] // aqui iria o proxy, conforme https://zytedata.medium.com/how-to-use-a-proxy-in-puppeteer-c860aa999575
+    });
     this.page = await browser.newPage();
     await this.page.goto(this.profileUrl, { waitUntil: 'networkidle2' });
   }
@@ -26,7 +36,7 @@ export class LinkedInScraper {
     }
   } 
 
-  async getProfileInfo(): Promise<object> {
+  async getProfileInfo(): Promise<ExtractedProfile> {
     if (!this.page) {
       throw new Error('Page not initialized. Call init() first.');
     }
@@ -39,12 +49,12 @@ export class LinkedInScraper {
     const location = $('.top-card-layout__first-subline > .top-card__subline-item:first-child').text().trim();
     const about = $('.core-section-container__content > p:first-child').html()?.replace(/<br>/g, '\n').trim() || '';
 
-    return {
-      name,
-      headline,
-      location,
-      about
-    };
+    const extractedProfile = new ExtractedProfile();
+    extractedProfile.name = name;
+    extractedProfile.headline = headline;
+    extractedProfile.location = location;
+    extractedProfile.about = about;
+    return extractedProfile;
   }
 
   async close(): Promise<void> {

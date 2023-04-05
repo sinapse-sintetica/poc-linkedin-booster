@@ -28,10 +28,11 @@ class LinkedInController {
         await scraper.close();
         
 
-        type ObjectKey = keyof typeof profileInfo;
-        const about = ('about') as ObjectKey
+        // type ObjectKey = keyof typeof profileInfo;
+        // const about = ('about') as ObjectKey
 
-        const response = await getOpenAiRevision(about);
+        // const response = await getOpenAiRevision(about);
+        const response = await getOpenAiRevision(profileInfo);
         const revised = response.data.choices[0].message?.content;
 
         const updatedProfileInfo = {
