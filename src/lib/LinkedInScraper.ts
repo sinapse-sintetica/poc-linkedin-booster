@@ -14,11 +14,22 @@ export class LinkedInScraper {
   constructor(private profileUrl: string) {}
 
   async init(): Promise<void> {
+    const proxyHost = process.env.PROXY_HOST;
+    const proxyPort = process.env.PROXY_PORT;
+    const proxyUsername = process.env.PROXY_USERNAME;
+    const proxyPassword = process.env.PROXY_PASSWORD;
+    const proxyUrl = `http://${proxyUsername}:${proxyPassword}@${proxyHost}:${proxyPort}`;
+
     const browser = await puppeteer.launch({ 
-      headless: true//,
-      //args: [ '--proxy-server=http://10.10.10.10:8000' ] // aqui iria o proxy, conforme https://zytedata.medium.com/how-to-use-a-proxy-in-puppeteer-c860aa999575
+      headless: true,
+      ignoreHTTPSErrors: true,
+      args: [
+        `--proxy-server=${proxyUrl}`
+        // Se necessário, adicione '--no-sandbox' e '--disable-setuid-sandbox'
+      ]
     });
     this.page = await browser.newPage();
+
     await this.page.goto(this.profileUrl, { waitUntil: 'networkidle2' });
   }
 
