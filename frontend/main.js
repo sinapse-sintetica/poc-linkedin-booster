@@ -64,7 +64,7 @@ linkedinAuthButton.addEventListener("click", () => {
     "https://www.linkedin.com/oauth/v2/authorization" +
     "?response_type=code" +
     "&client_id=77m519bigpjdup" +
-    "&redirect_uri=https://www.linkedin.com/developers/tools/oauth/redirect" +
+    "&redirect_uri=https://betterprofile.me/poc-linkedin-booster/frontend" +
     "&state=[UMA_STRING_RANDOMICA_AQUI]" +
     "&scope=r_liteprofile%20r_emailaddress" // Adicione aqui os escopos que você precisa
 
