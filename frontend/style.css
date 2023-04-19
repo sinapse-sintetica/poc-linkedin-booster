@@ -6,7 +6,7 @@ label {
   display: block;
   font-size: 16px;
   margin-bottom: 10px;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
 }
 
 .msg-erro {
@@ -17,16 +17,22 @@ label {
 }
 
 .todos-dados {
-  border: 1px solid rgba(128,128,128, 0.4);
+  border: 1px solid rgba(128, 128, 128, 0.4);
   padding: 20px;
   max-width: 900px;
-  animation: fadeIn .3s forwards;
+  animation: fadeIn 0.3s forwards;
   display: none;
 }
 
 .area-busca {
   display: flex;
   margin-bottom: 20px;
+}
+
+.botao-conectar-linkedin {
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 380px;
 }
 
 .area-busca input {
@@ -59,7 +65,7 @@ input {
 }
 
 input:read-only {
-  background-color: rgb(241,241,241);
+  background-color: rgb(241, 241, 241);
 }
 
 textarea {
