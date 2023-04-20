@@ -1,8 +1,8 @@
 import { Router } from 'express';
-import LinkedInController from '../controllers/linkedin.controller';
+import LinkedInAPI from '../controllers/linkedin.controller';
 
 const router = Router();
 
-router.get('/:perfil', LinkedInController.getProfileInfo);
+router.get('/:perfil', LinkedInAPI.getProfileInfo);
 
 export default router;

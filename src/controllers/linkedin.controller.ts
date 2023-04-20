@@ -1,7 +1,6 @@
 import { Request, Response } from 'express';
-import { LinkedInScraper } from '../lib/LinkedInScraper';
+import { LinkedInAPI } from '../lib/LinkedInAPI';
 import { getOpenAiRevision } from '../lib/OpenAIRequest';
-
 
 class LinkedInController {
   // #swagger.tags = ['LinkedIn']
@@ -20,31 +19,23 @@ class LinkedInController {
     try {
       const { perfil } = req.params;
       const profileUrl = `https://www.linkedin.com/in/${perfil}`;
-      const scraper = new LinkedInScraper(profileUrl);
+      const scraper = new LinkedInAPI(profileUrl);
       await scraper.init();
+      const profileInfo = await scraper.getProfileInfo();
 
-      if (await scraper.isProfilePage()) {
-        const profileInfo = await scraper.getProfileInfo();
-        await scraper.close();
-        
+      // type ObjectKey = keyof typeof profileInfo;
+      // const about = ('about') as ObjectKey
 
-        // type ObjectKey = keyof typeof profileInfo;
-        // const about = ('about') as ObjectKey
+      // const response = await getOpenAiRevision(about);
+      const response = await getOpenAiRevision(profileInfo);
+      const revised = response.data.choices[0].message?.content;
 
-        // const response = await getOpenAiRevision(about);
-        const response = await getOpenAiRevision(profileInfo);
-        const revised = response.data.choices[0].message?.content;
+      const updatedProfileInfo = {
+        ...profileInfo,
+        revised,
+      };
 
-        const updatedProfileInfo = {
-          ...profileInfo,
-          revised,
-        };
-
-        res.json(updatedProfileInfo);
-      } else {
-        await scraper.close();
-        res.status(400).json({ message: 'A página carregada não é uma página de perfil do LinkedIn' });
-      }
+      res.json(updatedProfileInfo);
     } catch (error) {
       console.error(error);
       res.status(500).json({ message: 'Erro ao fazer scraping do LinkedIn' });
