@@ -11,8 +11,8 @@ const doc = {
     description: 'Uma API simples utilizando Node.js, TypeScript e Swagger-autogen'
   },
   basePath: '/',
-  schemes: ['http'],
-  host: 'localhost:3042'
+  schemes: ['https'],
+  host: '0.0.0.0:3042'
 };
 
 swaggerAutogen()(outputFile, endpointsFiles, doc).then(() => {

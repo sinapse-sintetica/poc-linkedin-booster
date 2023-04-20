@@ -5,10 +5,10 @@
     "version": "1.0.0",
     "description": "Uma API simples utilizando Node.js, TypeScript e Swagger-autogen"
   },
-  "host": "localhost:3042",
+  "host": "0.0.0.0:3042",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/": {
@@ -49,6 +49,30 @@
           },
           "500": {
             "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/profile/save-cookie": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "cookieValue": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
           }
         }
       }
