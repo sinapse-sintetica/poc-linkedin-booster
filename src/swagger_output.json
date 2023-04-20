@@ -5,7 +5,7 @@
     "version": "1.0.0",
     "description": "Uma API simples utilizando Node.js, TypeScript e Swagger-autogen"
   },
-  "host": "0.0.0.0:3042",
+  "host": "localhost:3042",
   "basePath": "/",
   "schemes": [
     "https"

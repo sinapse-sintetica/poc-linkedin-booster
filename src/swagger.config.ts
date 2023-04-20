@@ -12,9 +12,11 @@ const doc = {
   },
   basePath: '/',
   schemes: ['https'],
-  host: '0.0.0.0:3042'
+  host: 'localhost:3042'
 };
 
 swaggerAutogen()(outputFile, endpointsFiles, doc).then(() => {
   console.log('Swagger-autogen completo.');
 });
+
+export default doc;

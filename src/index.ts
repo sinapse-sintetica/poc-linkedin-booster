@@ -4,13 +4,15 @@ import mensagemRoutes from './routes/mensagem.routes';
 import linkedinRoutes from './routes/linkedin.routes';
 import openaiRoutes from './routes/openai.routes';
 import profileRoutes from './routes/profile.routes';
+import doc from './swagger.config'
+
 const fs = require('fs');
 const https = require('https');
 const cors = require('cors');
 const swaggerFile = require('./swagger_output.json');
 
 const app = express();
-const port = process.env.PORT || 3042;
+const port = process.env.PORT || doc.host.split(':')[1];
 
 
 const corsOptions = {
@@ -20,7 +22,7 @@ const corsOptions = {
   credentials: true, // Permitir cookies
   optionsSuccessStatus: 200, // Código de status de resposta para solicitações OPTIONS
 };
-// Habilita CORS com opções personalizadas
+
 app.use(cors(corsOptions));
 
 app.get('/', (req: Request, res: Response) => {
@@ -32,20 +34,17 @@ app.use('/mensagem', mensagemRoutes);
 app.use('/linkedin', linkedinRoutes);
 app.use('/gpt35', openaiRoutes);
 
-
 app.use('/api/profile', profileRoutes);
 
 const privateKey = fs.readFileSync('server-key.pem', 'utf8');
 const certificate = fs.readFileSync('server-cert.pem', 'utf8');
-// const ca = fs.readFileSync('server-csr.pem', 'utf8');
 
 const credentials = {
   key: privateKey,
   cert: certificate
-  // ca: ca, // Inclua esta linha se você tiver um certificado CA.
 };
 const httpsServer = https.createServer(credentials, app);
-const host = '0.0.0.0';
+const host = doc.host.split(':')[0];
 httpsServer.listen(port, host, () => {
   console.log(`Servidor rodando em https://${host}:${port}`);
 });
